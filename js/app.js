@@ -4,7 +4,11 @@ var oFilmoviModul = angular.module('filmovi-app', ['ngRoute']);
 oFilmoviModul.controller('filmoviController', function ($scope,$http,$location) {
 
     $scope.loggedin = false;
-    
+
+     
+	$scope.LoadMovies = function()
+    {
+            
         $scope.otvoriModal = function(sHref)
         {
             $('#modals').removeData('bs.modal');
@@ -14,9 +18,7 @@ oFilmoviModul.controller('filmoviController', function ($scope,$http,$location) 
                 show: true
             });
         };
-     
-	$scope.LoadMovies = function()
-    {
+        
         $http({
             method: 'GET',
             url: 'json.php?json_id=get_movies'
