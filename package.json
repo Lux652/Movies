@@ -1,0 +1,29 @@
+{
+  "name": "movies",
+  "version": "1.0.0",
+  "description": "Simple AngularJS, PHP movie app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Lux652/Movies.git"
+  },
+  "author": "Luka Kovacic",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Lux652/Movies/issues"
+  },
+  "homepage": "https://github.com/Lux652/Movies#readme",
+  "dependencies": {
+    "gulp": "^3.9.1"
+  },
+  "devDependencies": {
+    "bourbon-neat": "^1.9.0",
+    "gulp-plumber": "^1.2.0",
+    "gulp-sass": "^4.0.1",
+    "gulp-sourcemaps": "^2.6.4",
+    "gulp-watch": "^5.0.0"
+  }
+}

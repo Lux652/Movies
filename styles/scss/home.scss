@@ -1,0 +1,75 @@
+@import "grid-settings";
+@import "neat";
+@import "header";
+@import "variables";
+
+.register{
+    .btnRegister{
+        background-color:$base-color;
+        color:white;
+        border:none;
+        border-radius: 3px;
+        box-shadow: 0 1px 3px 0 rgba(107,122,148,0.3), 0 2px 5px 0 rgba(35,73,139,0.08);
+        height:50px;
+        width:230px;
+        font-family: $Source-Sans-Pro;
+        font-size:$Baseline;
+        font-weight:900px;
+        line-height:22px;
+        cursor: pointer;
+      }
+      a{
+          color:$blue;
+      }
+}
+
+.login{
+    .btnLogin{
+        background-color:$base-color;
+        color:white;
+        border:none;
+        border-radius: 3px;
+        box-shadow: 0 1px 3px 0 rgba(107,122,148,0.3), 0 2px 5px 0 rgba(35,73,139,0.08);
+        height:50px;
+        width:230px;
+        font-family: $Source-Sans-Pro;
+        font-size:$Baseline;
+        font-weight:900px;
+        line-height:22px;
+        cursor: pointer;
+      }
+      a{
+        color:$blue;
+    }
+
+}
+
+.filmovi-container{
+    @include outer-container();
+    margin-left:400px;
+    .card-header{
+        width:300px;
+    }
+    img{
+        text-align:center;
+    }
+}
+
+.modal{
+    height:100%;
+    width:100%;
+    .button-add{
+        background-color:$base-color;
+        color:white;
+        border:none;
+        border-radius: 3px;
+        box-shadow: 0 1px 3px 0 rgba(107,122,148,0.3), 0 2px 5px 0 rgba(35,73,139,0.08);
+        height:20px;
+        width:80px;
+        font-family: $Source-Sans-Pro;
+        font-size:$Baseline;
+        font-weight:900px;
+        line-height:22px;
+        cursor: pointer;
+    }
+}
