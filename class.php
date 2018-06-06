@@ -32,16 +32,16 @@ class User
 class saved_Movie{
     public $id="N/A";
     public $title="N/A";
-    public $genre="N/A";
     public $rating="N/A";
     public $poster="N/A";
+    public $user_id="N/A";
 
-    public function __construct($ID=null,$Title=null,$Genre=null,$Rating=null,$Poster=null){
-        $this->ID=$id;
-        $this->Title=$title;
-        $this->Genre=$genre;
-        $this->Rating=$rating;
-        $this->Poster=$poster;
+    public function __construct($id=null,$title=null,$rating=null,$poster=null,$user_id=null){
+        $this->id=$id;
+        $this->title=$title;
+        $this->rating=$rating;
+        $this->poster=$poster;
+        $this->user_id=$user_id;
 
     }
 }
@@ -50,12 +50,14 @@ class Movie{
     public $Title="N/A";
     public $Rating="N/A";
     public $Poster="N/A";
+    public $UserRating="N/A";
 
-    public function __construct($ID=null,$Title=null,$Rating=null,$Poster=null){
+    public function __construct($ID=null,$Title=null,$Rating=null,$Poster=null,$UserRating=null){
         $this->ID=$ID;
         $this->Title=$Title;
         $this->Rating=$Rating;
         $this->Poster=$Poster;
+        $this->UserRating=$UserRating;
     }
 }
 

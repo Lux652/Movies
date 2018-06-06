@@ -3,14 +3,6 @@ $Source-Sans-Pro:'Source Sans Pro', sans-serif;
 
 
 $Baseline:16px;
-$LineHieght:1.414;
-$Spacing:-1px;
-$ParagraphPaddingTop:0;
-$ParagraphPaddingBotom:$Baseline*0.5;
-$HeaderLineHeight:1.2;
-$HeaderPaddingTop:$Baseline;
-$HeaderPaddingBottom:$Baseline*0.5;
-$blue:#003DA6;
 $base-color:#017a68;
 
 .wrapper{
@@ -67,23 +59,8 @@ $base-color:#017a68;
     font-weight:900;
   }
   
-  .p-intro{
-      font-size:1.999em;
-      font-family:$Source-Sans-Pro;
-    font-weight:300;
-  }
-  
-  .p-big{
-    font-size:1.414em;
-    font-family:$Source-Sans-Pro;
-  }
-  
-  .p-basic{
+p{
     font-size:1em;
     font-family:$Source-Sans-Pro;
   }
   
-  .p-small{
-    font-size:0.707em;
-    font-family:$Source-Sans-Pro;
-  }

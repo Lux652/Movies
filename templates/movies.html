@@ -3,9 +3,24 @@
             <a href=""><img  id="logo" src="assets/img/film-viewer.svg" alt="logo-black"></a>
             <ul>
                 <li><a href="#!/home" style="text-decoration:none">home</a></li>
-                <button class="button-logout">logout</button>                                                                         
+                <button class="button-logout" ng-click=Logout()>logout</button>                                                                         
             </ul>                                                                   
         </div>
     </header>
-    
-
+<div class="filmovi-container">
+    <h3>Spremljeni filmovi</h3>
+    <br>
+    <div class="row" ng-init="myMovies()">
+        <div class="col-xs-6 filmovi"  ng-repeat="film in filmovi">
+            <div class="card">
+                <div data-title="ime-filma" ng-model="title" class="card-header id">
+                <h5>{{film.Title}}</h5>
+                </div>
+                <div ng-model="poster" class="card-body"><img ng-src="http://image.tmdb.org/t/p/w185{{film.Poster}}"></div>
+                <br>
+                <div ng-model="rating" class="card-footer">Rating: {{film.Rating}}<br>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>

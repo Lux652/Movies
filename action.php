@@ -5,35 +5,52 @@ session_start();
 $sPostData = file_get_contents("php://input");
 $oPostData = json_decode($sPostData);
 $sActionID= $oPostData->action_id;
+if(isset($_POST['action_id']))
+{
+    $sActionID=$_POST['action_id'];
+}
 
 
 switch($sActionID)
 {
 	case 'login':
 	$Username = $oPostData->username;
-    $Password = $oPostData->password;
+	$Password = $oPostData->password;
+	
 	$sQuery = "SELECT * FROM user WHERE username='$Username' AND password='$Password'";
 	$oRecord = $oConnection->query($sQuery);
 	$row = $oRecord->fetch();
 	$count = $oRecord->rowCount();
 
-	$oExportData = array();
+	/*$oExportData = array();*/
 	if( $count>0 )
 	{
-		$oExportData['login_status'] = 1;
+		/*$oExportData['login_status'] = 1;
 		$oExportData['id'] = $row['id'];
 		$oExportData['firstname'] = $row['firstname'];
 		$oExportData['lastname'] = $row['lastname'];
 		$oExportData['username'] = $row['username'];
-		$oExportData['email'] = $row['email'];
+		$oExportData['email'] = $row['email'];*/
+
+		$_SESSION['userID']=$row['id'];
+		$_SESSION['username']=$row['username'];
+		echo json_encode(array(
+			"status" => 1,
+			"user_id" =>$_SESSION['userID']
+		));
+
+
 
 	}
 	else
 	{
-		$oExportData['login_status'] = 0;
+		// $oExportData['login_status'] = 0;
+		echo json_encode(array(
+			"status" => 0
+		));
 	}
 
-	echo json_encode($oExportData);
+	// echo json_encode($oExportData);
 	break;
 
 
@@ -69,16 +86,18 @@ switch($sActionID)
 	$Title = $oPostData->Title;
 	$Poster = $oPostData->Poster;
 	$Rating=$oPostData->Rating;
-	$User_ID=$_SESSION['id'];
+	$UserRating=$oPostData->UserRating;
+	$User_ID=$_SESSION['userID'];
 
 	var_dump($oPostData);
-	$sQuery = "INSERT INTO movie (title, poster, rating, user_id) VALUES (:title, :poster, :rating, :user_id)";
+	$sQuery = "INSERT INTO movie (title, poster, rating, user_id, user_rating) VALUES (:title, :poster, :rating, :user_id, :user_rating)";
 	$oStatement = $oConnection->prepare($sQuery);
 	$oData = array(
 		'title' => $Title,
 		'poster' => $Poster,
 		'rating' => $Rating,
-		'user_id'=> $User_ID
+		user_id => $User_ID,
+		'user_rating'=> $UserRating
 	);
 	try
 	{
@@ -93,23 +112,34 @@ switch($sActionID)
 	}
 	break;
 
-	case 'show_saved_movies':
-
-	break;
 
 	case 'logout':
 		session_destroy();
 	break;
 
+	// case 'check_logged_in':
+	// 	if( isset($_SESSION['userID']) )
+	// 	{
+	// 		echo 1;
+	// 	}
+	// 	else
+	// 	{
+	// 		echo 0;
+	// 	}
+	// break;
+
 	case 'check_logged_in':
-		if( isset($_SESSION['user']) )
-		{
-			echo 1;
-		}
-		else
-		{
-			echo 0;
-		}
+	if(isset($_SESSION['userID'])){
+		echo json_encode(array(
+			"status" => 1,
+			"user_id" => $_SESSION['userID']
+		));
+	}
+	else{
+		echo json_encode(array(
+			"status" => 0
+		));
+	}
 	break;
 }
 

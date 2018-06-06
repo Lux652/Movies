@@ -1,40 +1,44 @@
 <header>
-        <div class="header-wrapper">
-            <a href=""><img  id="logo" src="assets/img/film-viewer.svg" alt="logo-black"></a>
-            <ul>
-                <li><a href="#!/movies" style="text-decoration:none">moji filmovi</a></li>
-                <button class="button-logout">logout</button>                                                                         
-            </ul>                                                                   
-        </div>
-    </header>
-    
+    <div class="header-wrapper">
+       <a href=""><img  id="logo" src="assets/img/film-viewer.svg" alt="logo-black"></a>
+       <ul>
+          <li><a href="#!/movies" style="text-decoration:none">moji filmovi</a></li>
+          <li><a href="#!/search" style="text-decoration:none">pretraži filmove</a></li>
+          <button class="button-logout" ng-click="Logout()">logout</button>                                                                         
+       </ul>
+    </div>
+ </header>
 
 
-            <div class="filmovi-container">
-                <h3>Najpopularniji filmovi</h3>
-                <br>
-                <div class="row" ng-init="LoadMovies()">
-                    <div class="col-xs-6 filmovi"  ng-repeat="film in filmovi">
-                        <div class="card">
-                            <div data-title="ime-filma" ng-model="title" class="card-header id"><h5>{{film.Title}}</h5></div>
-                            <div ng-model="poster" class="card-body"><img ng-src="http://image.tmdb.org/t/p/w185{{film.Poster}}"></div>
-                            <br>
-                            <div ng-model="rating" class="card-footer">Rating: {{film.Rating}}<br> <button class="btn btn-primary btn-sm" ng-click="otvoriModal()">Dodaj</button></div>
-                        </div>      
-                    </div>
-                                    
-                <div class="modal fade" id="modals" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <h3>Unesite ocjenu za odabrani film</h3>
-                                <p class="p-big">Rating:<span><input class="inptRating"type="number" value="0.0"></span></p>
-                                <br>
-                                <button class="button-add"  ng-click="addMovie(film)">Dodaj</button>
-                            </div>
-                        </div>
-     </div>                    
-                </div>
 
-            </div>
+ <div class="filmovi-container">
+    <div class="naslovi">
+            <h3>Najpopularniji filmovi</h3>
+    </div>
+    <div>
+            <select name="" id="">
+                        <option value="naziv">Naziv</option>
+                        <option value="ocjena">Ocjena</option>
+            </select>
+
+    </div>
+    <br>
+    <div class="row" ng-init="LoadMovies()">
+       <div class="col-xs-6 filmovi"  ng-repeat="film in filmovi">
+          <div class="card">
+             <div data-title="ime-filma" ng-model="title" class="card-header id">
+                <h5>{{film.Title}}</h5>
+             </div>
+             <div ng-model="poster" class="card-body"><img ng-src="http://image.tmdb.org/t/p/w185{{film.Poster}}"></div>
+             <br>
+             <div ng-model="rating" class="card-footer">Rating: {{film.Rating}}<br>
+                <divclass="card-footer">Unesi ocjenu:<input type="number" ng-model="film.UserRating"></div>
+                <button class="btn btn-primary btn-sm" ng-click="addMovie(film)">Dodaj</button>
+             </div>
+          </div>
+       </div>
+    </div>
+ </div>
 
 
+ 
