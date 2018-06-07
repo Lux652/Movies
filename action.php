@@ -22,35 +22,21 @@ switch($sActionID)
 	$row = $oRecord->fetch();
 	$count = $oRecord->rowCount();
 
-	/*$oExportData = array();*/
 	if( $count>0 )
 	{
-		/*$oExportData['login_status'] = 1;
-		$oExportData['id'] = $row['id'];
-		$oExportData['firstname'] = $row['firstname'];
-		$oExportData['lastname'] = $row['lastname'];
-		$oExportData['username'] = $row['username'];
-		$oExportData['email'] = $row['email'];*/
-
 		$_SESSION['userID']=$row['id'];
 		$_SESSION['username']=$row['username'];
 		echo json_encode(array(
 			"status" => 1,
 			"user_id" =>$_SESSION['userID']
 		));
-
-
-
 	}
 	else
 	{
-		// $oExportData['login_status'] = 0;
 		echo json_encode(array(
 			"status" => 0
 		));
 	}
-
-	// echo json_encode($oExportData);
 	break;
 
 
@@ -89,19 +75,17 @@ switch($sActionID)
 	$UserRating=$oPostData->UserRating;
 	$User_ID=$_SESSION['userID'];
 
-	var_dump($oPostData);
 	$sQuery = "INSERT INTO movie (title, poster, rating, user_id, user_rating) VALUES (:title, :poster, :rating, :user_id, :user_rating)";
 	$oStatement = $oConnection->prepare($sQuery);
 	$oData = array(
 		'title' => $Title,
 		'poster' => $Poster,
 		'rating' => $Rating,
-		user_id => $User_ID,
+		'user_id' => $User_ID,
 		'user_rating'=> $UserRating
 	);
 	try
 	{
-		//$oStatement=$oConnection->prepare($sQuery);
 		$oStatement->execute($oData);
 		echo 1;
 	}
@@ -116,18 +100,6 @@ switch($sActionID)
 	case 'logout':
 		session_destroy();
 	break;
-
-	// case 'check_logged_in':
-	// 	if( isset($_SESSION['userID']) )
-	// 	{
-	// 		echo 1;
-	// 	}
-	// 	else
-	// 	{
-	// 		echo 0;
-	// 	}
-	// break;
-
 	case 'check_logged_in':
 	if(isset($_SESSION['userID'])){
 		echo json_encode(array(
@@ -142,5 +114,4 @@ switch($sActionID)
 	}
 	break;
 }
-
 ?>

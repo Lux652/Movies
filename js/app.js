@@ -67,7 +67,7 @@ oFilmoviModul.controller('filmoviController', function ($scope, $http, $location
     $scope.searchMovies = function () {
         $http({
             method: 'GET',
-            url: 'json.php?json_id=search_movies&title=' + encodeURIComponent($scope.title.trim())
+            url: 'json.php?json_id=search_movies&title=' + $scope.title
         }).then(function (response) {
             $scope.filmovi = response.data;
             $scope.prikazi = true;
