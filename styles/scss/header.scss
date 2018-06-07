@@ -3,18 +3,6 @@
 @import "variables";
 
 
-p,h5,h6,h4{
-  line-height: $LineHieght;
-  margin-top:$ParagraphPaddingTop;
-  margin-bottom: $ParagraphPaddingBotom;
-}
-
-h1,h2,h3{
-  line-height:$HeaderLineHeight;
-  margin-top:$HeaderPaddingTop;
-  margin-bottom:$HeaderPaddingBottom
-  letter-spacing $Spacing;
-}
 
 
 header{
@@ -25,6 +13,8 @@ header{
   #logo{
     float:left;
     padding-top:30px;
+    height:120px;
+    width:auto;
   }
   ul{
     list-style:none;

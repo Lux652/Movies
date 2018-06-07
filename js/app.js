@@ -1,4 +1,30 @@
 var oFilmoviModul = angular.module('filmovi-app', ['ngRoute']);
+oFilmoviModul.config(function($routeProvider){
+	$routeProvider.when('/',{
+		templateUrl:'templates/login.html',
+		controller:'filmoviController'
+	});
+	$routeProvider.when('/movies',{
+		templateUrl:'templates/movies.html',
+		controller:'filmoviController'
+	});
+	$routeProvider.when('/home',{
+		templateUrl:'templates/home.html',
+        controller:'filmoviController'
+	});
+	$routeProvider.when('/register',{
+		templateUrl:'templates/register.html',
+        controller:'filmoviController'
+    });
+    $routeProvider.when('/search',{
+		templateUrl:'templates/search.html',
+        controller:'filmoviController'
+	});
+	$routeProvider.otherwise({
+		template:'Greška'
+	});
+});
+
 
 
 oFilmoviModul.controller('filmoviController', function ($scope,$http,$location) {
@@ -10,15 +36,12 @@ oFilmoviModul.controller('filmoviController', function ($scope,$http,$location) 
         function(response){
             if(response.data.status == 1){
 
-                $scope.role='user';
                 $scope.loggedin = true;
 
 
             }
             else{
-                $scope.role="guest";
                 $scope.loggedin = false;
-                $location.path("/");
             }
         },
         function(e){
@@ -114,7 +137,7 @@ oFilmoviModul.controller('filmoviController', function ($scope,$http,$location) 
                         $scope.role="user";
                         $scope.loggedin = true;
                         $location.path('/home');
-                    }
+                        alert("Pozdrav "+$scope.username+"!");                    }
                     else{
                         alert("Neispravno korisničko ime i/ili lozinka! Pokušajte ponovno!");
                     }
@@ -141,7 +164,7 @@ $scope.Register = function(){
                     if(response.data==1){
                         console.log(oData);
                         alert("Uspješna registracija!");
-                        $location.path('/login');
+                        $location.path('/');
                     }
                     else{
                         console.log(oData);
@@ -159,7 +182,7 @@ $scope.Register = function(){
         .then(
             function(response){
                 $scope.loggedin = false;
-                alert('Logout successful');
+                alert('Uspješno ste se odjavili!');
                 $location.path('/');
             },
             function(e){
@@ -177,12 +200,7 @@ $scope.Register = function(){
             .then(
                 function(response){
                     console.log(response);
-                    if(response.data==1){                      
-                        $location.path('/movies');
-                    }
-                    else{
-                        //console.log(oData);                      
-                    }
+                    alert("Uspješno ste dodali "+oMovie.Title+"!\nOcjena:"+oMovie.UserRating);
                     //console.log(response);
                 }
             );
@@ -191,28 +209,3 @@ $scope.Register = function(){
 });
 
 
-oFilmoviModul.config(function($routeProvider){
-	$routeProvider.when('/',{
-		templateUrl:'templates/login.html',
-		controller:'filmoviController'
-	});
-	$routeProvider.when('/movies',{
-		templateUrl:'templates/movies.html',
-		controller:'filmoviController'
-	});
-	$routeProvider.when('/home',{
-		templateUrl:'templates/home.html',
-        controller:'filmoviController'
-	});
-	$routeProvider.when('/register',{
-		templateUrl:'templates/register.html',
-        controller:'filmoviController'
-    });
-    $routeProvider.when('/search',{
-		templateUrl:'templates/search.html',
-        controller:'filmoviController'
-	});
-	$routeProvider.otherwise({
-		template:'Greška'
-	});
-});

@@ -35,13 +35,15 @@ class saved_Movie{
     public $rating="N/A";
     public $poster="N/A";
     public $user_id="N/A";
+    public $user_rating="N/A";
 
-    public function __construct($id=null,$title=null,$rating=null,$poster=null,$user_id=null){
+    public function __construct($id=null,$title=null,$rating=null,$poster=null,$user_id=null,$user_rating=null){
         $this->id=$id;
         $this->title=$title;
         $this->rating=$rating;
         $this->poster=$poster;
         $this->user_id=$user_id;
+        $this->user_rating=$user_rating;
 
     }
 }

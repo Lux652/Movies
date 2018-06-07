@@ -25,24 +25,6 @@ if(isset($_GET['title']))
 $oJson=array();
 switch($sJsonID)
 {
-	case 'get_all_users':
-		$sQuery="SELECT * FROM user";
-		$oRecord=$oConnection->query($sQuery);
-		
-		while($oRow=$oRecord->fetch(PDO::FETCH_BOTH))
-		{
-			$oUser=new User(
-					$oRow['id'],
-					$oRow['username'],
-					$oRow['password'],
-					$oRow['firstname'],
-					$oRow['lastname'],
-					$oRow['email']
-				);
-			array_push($oJson,$oUser);
-		}
-		break;
-
 	case 'myMovies':
 	$User_ID=$_SESSION['userID'];
 	$sQuery="SELECT * FROM movie WHERE user_id=$User_ID";
@@ -55,7 +37,8 @@ switch($sJsonID)
 				$oRow['title'],
 				$oRow['rating'],
 				$oRow['poster'],
-				$oRow['user_id']
+				$oRow['user_id'],
+				$oRow['user_rating']
 			);
 		array_push($oJson,$oSaved_movie);
 	}
@@ -110,7 +93,6 @@ switch($sJsonID)
 				);
 			 }		
 	break;
-	
 }
 echo json_encode($oJson);
 ?>
