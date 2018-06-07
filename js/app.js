@@ -51,8 +51,11 @@ oFilmoviModul.controller('filmoviController', function ($scope, $http, $location
             method: 'GET',
             url: 'json.php?json_id=get_movies'
         }).then(function (response) {
-            $scope.filmovi = response.data;
-        });
+                $scope.filmovi = response.data;
+            },
+            function (response) {
+                console.log('error');
+            });
     };
 
     $scope.myMovies = function () {
@@ -60,8 +63,11 @@ oFilmoviModul.controller('filmoviController', function ($scope, $http, $location
             method: 'GET',
             url: 'json.php?json_id=myMovies'
         }).then(function (response) {
-            $scope.filmovi = response.data;
-        });
+                $scope.filmovi = response.data;
+            },
+            function (response) {
+                console.log('error');
+            });
     };
 
     $scope.searchMovies = function () {
@@ -70,8 +76,6 @@ oFilmoviModul.controller('filmoviController', function ($scope, $http, $location
             url: 'json.php?json_id=search_movies&title=' + $scope.title
         }).then(function (response) {
             $scope.filmovi = response.data;
-            $scope.prikazi = true;
-            console.log(response);
         }, function (response) {
             alert("Traženi film ne postoji")
         });
@@ -87,8 +91,6 @@ oFilmoviModul.controller('filmoviController', function ($scope, $http, $location
             .then(
                 function (response) {
                     if (response.data.status == 1) {
-                        $scope.loggeduser = response.data.user_id;
-                        $scope.role = "user";
                         $scope.loggedin = true;
                         $location.path('/home');
                         alert("Pozdrav " + $scope.username + "!");

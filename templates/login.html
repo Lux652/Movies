@@ -21,7 +21,7 @@
 								<input class="form-control" placeholder="Lozinka" type="password" ng-model="password" required>
 							</div>
 							<div class="form-group no-margin">
-								<button type="button" class="btnLogin" ng-click="Login()">
+								<button ng-disabled="!username || username ==0" type="button" class="btnLogin" ng-click="Login()">
 									Login
 								</button>
 							</div>

@@ -28,7 +28,7 @@ switch($sActionID)
 		$_SESSION['username']=$row['username'];
 		echo json_encode(array(
 			"status" => 1,
-			"user_id" =>$_SESSION['userID']
+			"user_id" => $_SESSION['userID']
 		));
 	}
 	else

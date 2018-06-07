@@ -33,6 +33,9 @@
         font-weight: 900px;
         line-height: 22px;
         cursor: pointer;
+        :disabled {
+            background-color: grey;
+        }
     }
 }
 
@@ -57,7 +60,7 @@
     position: relative;
     margin-top: -30%;
     height: 400px;
-    width:auto;
+    width: auto;
     .card-title {
         height: 110px;
     }
@@ -80,7 +83,7 @@
         cursor: pointer;
         float: right;
         margin-left: 282px;
-        margin-top:-40px;
+        margin-top: -40px;
     }
     .user_rating {
         float: right;
@@ -92,13 +95,9 @@
 
 .card {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    &:hover {
-        box-shadow: 0 8px 18px rgba(0, 0, 0, 0.10), 0 8px 8px rgba(0, 0, 0, 0.18);
-    }
     .cardMyMovies {
         height: 400px;
     }
-    
 }
 
 .card {
@@ -107,7 +106,8 @@
     overflow: hidden;
     transform: scale(0.8);
     margin-top: -60px;
-    width:auto;
+    width: auto;
+    border-color: $base-color;
 }
 
 .searchContainer {
@@ -115,11 +115,15 @@
     width: 460px;
     .searchForm {
         width: 400px;
+        border-color: $base-color;
     }
     .btnSearch {
         float: right;
         margin-top: -38px;
         background-color: $base-color;
+    }
+    .fa-search {
+        color: #e8edf4;
     }
 }
 
@@ -127,4 +131,5 @@
     width: 180px;
     margin-left: 800px;
     margin-top: -55px;
+    border-color: $base-color;
 }
