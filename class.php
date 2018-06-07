@@ -52,14 +52,14 @@ class Movie{
     public $Title="N/A";
     public $Rating="N/A";
     public $Poster="N/A";
-    public $UserRating="N/A";
+    public $Date="N/A";
 
-    public function __construct($ID=null,$Title=null,$Rating=null,$Poster=null,$UserRating=null){
+    public function __construct($ID=null,$Title=null,$Rating=null,$Poster=null,$Date=null){
         $this->ID=$ID;
         $this->Title=$Title;
         $this->Rating=$Rating;
         $this->Poster=$Poster;
-        $this->UserRating=$UserRating;
+        $this->Date=$Date;
     }
 }
 

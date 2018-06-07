@@ -64,7 +64,8 @@ switch($sJsonID)
 					$oFilmovi['id'],
 					$oFilmovi['title'],
 					$oFilmovi['vote_average'],
-					$oFilmovi['poster_path']
+					$oFilmovi['poster_path'],
+					$oFilmovi['release_date']
 				);
 			 }		
 	break;

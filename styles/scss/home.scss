@@ -2,147 +2,126 @@
 @import "neat";
 @import "header";
 @import "variables";
-
-.register{
-    .btnRegister{
-        background-color:$base-color;
-        color:white;
-        border:none;
+.register {
+    .btnRegister {
+        background-color: $base-color;
+        color: white;
+        border: none;
         border-radius: 3px;
-        box-shadow: 0 1px 3px 0 rgba(107,122,148,0.3), 0 2px 5px 0 rgba(35,73,139,0.08);
-        height:50px;
-        width:230px;
+        box-shadow: 0 1px 3px 0 rgba(107, 122, 148, 0.3), 0 2px 5px 0 rgba(35, 73, 139, 0.08);
+        height: 50px;
+        width: 230px;
         font-family: $Source-Sans-Pro;
-        font-size:$Baseline;
-        font-weight:900px;
-        line-height:22px;
+        font-size: $Baseline;
+        font-weight: 900px;
+        line-height: 22px;
         cursor: pointer;
-      }
+    }
 }
 
-.login{
-    .btnLogin{
-        background-color:$base-color;
-        color:white;
-        border:none;
+.login {
+    .btnLogin {
+        background-color: $base-color;
+        color: white;
+        border: none;
         border-radius: 3px;
-        box-shadow: 0 1px 3px 0 rgba(107,122,148,0.3), 0 2px 5px 0 rgba(35,73,139,0.08);
-        height:50px;
-        width:230px;
+        box-shadow: 0 1px 3px 0 rgba(107, 122, 148, 0.3), 0 2px 5px 0 rgba(35, 73, 139, 0.08);
+        height: 50px;
+        width: 230px;
         font-family: $Source-Sans-Pro;
-        font-size:$Baseline;
-        font-weight:900px;
-        line-height:22px;
+        font-size: $Baseline;
+        font-weight: 900px;
+        line-height: 22px;
         cursor: pointer;
-      }
-
-}
-
-// .filmovi-container{
-//     @include outer-container();
-//     margin-left:400px;
-//     .card-header{
-//         width:300px;
-//     }
-//     img{
-//         text-align:center;
-//     }
-// }
-@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700');
-
-@import url('https://fonts.googleapis.com/css?family=Fredericka+the+Great');
-
-body {
-   background-color: #e8edf4;
-   font-family: 'Open Sans', sans-serif;
-   padding-top: 10%;
+    }
 }
 
 .col-md-4 {
-   padding: 0;  
+    padding: 0;
 }
-
 
 .card-header {
-   background: none;
-   padding: 0;
-   position: relative;
-   border-style: none;
+    background: none;
+    padding: 0;
+    position: relative;
+    border-style: none;
 }
 
-
 .card-img {
-   -webkit-clip-path: inset(10% 0 20% 0);
+    -webkit-clip-path: inset(10% 0 20% 0);
     clip-path: inset(10% 0 20% 0);
     margin-top: -15%;
 }
 
 .card-body {
-   position: relative;
-   margin-top: -30%;
-   color: #9FA7A9;
-   height:300px;
-   .card-title {
-      color: #414345;
-      height:110px;
-   }
-   .card-text {
-      margin-top: 8px;
-      line-height: 30px;
-   }
-   .btnAdd{
-    background-color:$base-color;
-    color:white;
-    border:none;
-    border-radius: 3px;
-    box-shadow: 0 1px 3px 0 rgba(107,122,148,0.3), 0 2px 5px 0 rgba(35,73,139,0.08);
-    height:50px;
-    width:130px;
-    font-family: $Source-Sans-Pro;
-    font-size:$Baseline;
-    font-weight:900px;
-    line-height:22px;
-    cursor: pointer;
-    float:right;
-    bottom: 80px;
-    margin-left:222px;
-  }
-
-  .user_rating{
-      float:right;
-      width:80px;
-      height:30px;
-      margin-right:164px;
-  }
-}
-
-.card{
-   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-   &:hover {
-      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.10), 0 8px 8px rgba(0, 0, 0, 0.18);
-   }
-   .card-my_movies{
-       height:200px;
-   }   
+    position: relative;
+    margin-top: -30%;
+    height: 300px;
+    .card-title {
+        height: 110px;
+    }
+    .card-text {
+        margin-top: 8px;
+        line-height: 30px;
+    }
+    .btnAdd {
+        background-color: $base-color;
+        color: white;
+        border: none;
+        border-radius: 3px;
+        box-shadow: 0 1px 3px 0 rgba(107, 122, 148, 0.3), 0 2px 5px 0 rgba(35, 73, 139, 0.08);
+        height: auto;
+        width: auto;
+        font-family: $Source-Sans-Pro;
+        font-size: $Baseline;
+        font-weight: 900px;
+        line-height: 22px;
+        cursor: pointer;
+        float: right;
+        bottom: 75px;
+        margin-left: 282px;
+    }
+    .user_rating {
+        float: right;
+        width: 80px;
+        height: 30px;
+        margin-right: 164px;
+    }
 }
 
 .card {
-   border-radius: 8pt;
-   border-style: none;
-   overflow: hidden;
-   transform: scale(0.8);
-   margin-top: -60px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    &:hover {
+        box-shadow: 0 8px 18px rgba(0, 0, 0, 0.10), 0 8px 8px rgba(0, 0, 0, 0.18);
+    }
+    .card-my_movies {
+        height: 200px;
+    }
 }
 
-.searchContainer{
+.card {
+    border-radius: 8pt;
+    border-style: none;
+    overflow: hidden;
+    transform: scale(0.8);
+    margin-top: -60px;
+}
+
+.searchContainer {
     @include shift(3);
-    width:460px;
-    .searchForm{
-        width:400px;
+    width: 460px;
+    .searchForm {
+        width: 400px;
     }
-    .btnSearch{
-        float:right;
-        margin-top:-38px;
-        background-color:$base-color;
+    .btnSearch {
+        float: right;
+        margin-top: -38px;
+        background-color: $base-color;
     }
+}
+
+.sortOptions {
+    width: 180px;
+    margin-left: 800px;
+    margin-top: -55px;
 }

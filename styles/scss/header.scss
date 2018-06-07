@@ -1,53 +1,48 @@
 @import "grid-settings";
 @import "neat";
 @import "variables";
-
-
-
-
-header{
+header {
   @include outer-container();
-  .header-wrapper{
-    height:150px;
+  .header-wrapper {
+    height: 150px;
   }
-  #logo{
-    float:left;
-    padding-top:30px;
-    height:120px;
-    width:auto;
+  #logo {
+    float: left;
+    padding-top: 30px;
+    height: 120px;
+    width: auto;
   }
-  ul{
-    list-style:none;
-    float:right;
-    padding-top:50px;
-    padding-bottom:50px;
+  ul {
+    list-style: none;
+    float: right;
+    padding-top: 50px;
+    padding-bottom: 50px;
   }
-  
-li{
-  display:inline;
-  line-height: 25px;
-  font-family: $Source-Sans-Pro;
-  color:$base-color;
-  font-size:15px;
-  padding-right: 25px;
-  a{
-    color:$base-color;
+  li {
+    display: inline;
+    line-height: 25px;
+    font-family: $Source-Sans-Pro;
+    color: $base-color;
+    font-size: 15px;
+    padding-right: 25px;
+    a {
+      color: $base-color;
+    }
   }
-}
-.button-logout{
-  background-color:$base-color;
-  color:white;
-  float:right;
-  border:none;
-  border-radius: 3px;
-  box-shadow: 0 1px 3px 0 rgba(107,122,148,0.3), 0 2px 5px 0 rgba(35,73,139,0.08);
-  height:30px;
-  width:110px;
-  font-family: $Source-Sans-Pro;
-  font-size:$Baseline;
-  font-weight:900px;
-  line-height:22px;
-  cursor: pointer;
-  margin-top:-3px;
-}
+  .button-logout {
+    background-color: $base-color;
+    color: white;
+    float: right;
+    border: none;
+    border-radius: 3px;
+    box-shadow: 0 1px 3px 0 rgba(107, 122, 148, 0.3), 0 2px 5px 0 rgba(35, 73, 139, 0.08);
+    height: 30px;
+    width: 110px;
+    font-family: $Source-Sans-Pro;
+    font-size: $Baseline;
+    font-weight: 900px;
+    line-height: 22px;
+    cursor: pointer;
+    margin-top: -3px;
+  }
 }

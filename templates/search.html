@@ -1,80 +1,76 @@
 <header>
-        <div class="header-wrapper">
-            <a href=""><img  id="logo" src="assets/img/popcorn.svg" alt="logo-black"></a>
-            <ul>
-                <li><a href="#!/home"style="text-decoration:none">home</a></li>
-                <li><a href="#!/movies" style="text-decoration:none">moji filmovi</a></li>
-                <button class="button-logout">odjava</button>                                                                         
-            </ul>                                                                   
+    <div class="header-wrapper">
+        <a href="">
+            <img id="logo" src="assets/img/popcorn.svg" alt="logo-black">
+        </a>
+        <ul>
+            <li>
+                <a href="#!/home" style="text-decoration:none">home</a>
+            </li>
+            <li>
+                <a href="#!/movies" style="text-decoration:none">moji filmovi</a>
+            </li>
+            <button class="button-logout" ng-click="Logout()">odjava</button>
+        </ul>
+    </div>
+</header>
+
+
+
+<div class="container">
+    <div class="form-group">
+        <div class="searchContainer">
+            <input type="text" ng-model="title" class="form-control searchForm" placeholder="Unesite naziv filma" />
+            <button ng-click="searchMovies()" class="btn btnSearch ">
+                <span class="fa fa-search fa-lg"></span>
+            </button>
         </div>
-    </header>
-    
 
+    </div>
+    <select class="form-control sortOptions" ng-model="sortData">
 
-        <div class="container">
-                <div class="form-group">
-                        <div class="searchContainer">
-                            <input type="text" ng-model="title" class="form-control searchForm" placeholder="Unesite naziv filma"/>
-                            <button ng-click="searchMovies()" class="btn btnSearch "><span class="fa fa-search fa-lg"></span></button>
-                        </div>
+        <option value="" disabled selected>Sortiraj filmove</option>
+        <option value="Title">Ime</option>
+        <option value="-Rating">Ocjena</option>
+        <h3>Sortiraj</h3>
+    </select>
+    <br>
+    <br>
 
-                    </div>
-            
-                <div class="row flex-column-reverse flex-md-row" ng-show="prikazi==true">
-                        <div class="col-md-4" ng-repeat="film in filmovi">
-                            <div class="card">   
-                               <div ng-model="poster" class="card-header">
-                                  <img class="card-img" ng-src="http://image.tmdb.org/t/p/w500{{film.Poster}}" alt="Card image">
-                               </div>  
-                               <div class="card-body">
-                                  <h2 class="card-title" ng-model="title">{{film.Title}}</h2>
-                                  <div class="container">
-                                     <div class="row">
-                                        <div>
-                                           <i class="fa fa-star" aria-hidden="true"></i> 
-                                           <p ng-model="rating">Ocjena: {{film.Rating}}/10</p>
-                                           <p>Vaša ocjena:  <select name="" id="" ng-model="film.UserRating">
-                                                    <option value="1">1</option>
-                                                    <option value="2">2</option>
-                                                    <option value="3">3</option>
-                                                    <option value="4">4</option>
-                                                    <option value="5">5</option>
-                                                    <option value="6">6</option>
-                                                    <option value="7">7</option>
-                                                    <option value="8">8</option>
-                                                    <option value="9">9</option>
-                                                    <option value="10">10</option>
-                                            </select></p>
-                                           <button class="btn btnAdd" ng-click="addMovie(film)">Dodaj</button>
-                                        </div>
-                                     </div>
-                                  </div>      
-                               </div>
-                            </div>
-                        </div>
-                    </div>
-
-
+    <div class="row flex-column-reverse flex-md-row" ng-show="prikazi==true">
+        <div class="col-md-4" ng-repeat="film in filmovi|orderBy:sortData">
+            <div class="card">
+                <div ng-model="poster" class="card-header">
+                    <img class="card-img" ng-src="http://image.tmdb.org/t/p/w500{{film.Poster}}" alt="Card image">
                 </div>
-
-
-                    <!-- <div class="form-group">
-                            <div class="col-xs-4">
-                                <input type="text" ng-model="title" class="form-control" placeholder="Unesite naziv filma"/>
+                <div class="card-body">
+                    <h2 class="card-title" ng-model="title">{{film.Title}}</h2>
+                    <div class="container">
+                        <div class="row">
+                            <div>
+                                <p ng-model="rating">Ocjena: {{film.Rating}}/10</p>
+                                <p>Vaša ocjena:
+                                    <select name="" id="" ng-model="film.UserRating">
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                        <option value="10">10</option>
+                                    </select>
+                                </p>
+                                <button ng-disabled="!film.UserRating || film.UserRating ==0" class="btn btnAdd" ng-click="addMovie(film)">
+                                    <i class="fa fa-plus fa-3x"></i>
+                                </button>
                             </div>
-                            <button ng-click="searchMovies()" class="btn btnSearch">Pretraži</button>
                         </div>
-                    <br>
-                    <div class="row" >
-                        <div class="col-xs-6 filmovi"  ng-repeat="film in filmovi">
-                            <div class="card">
-                                <div data-title="ime-filma" ng-model="title" class="card-header id">
-                                <h5>{{film.Title}}</h5>
-                                </div>
-                                <div ng-model="poster" class="card-body"><img ng-src="http://image.tmdb.org/t/p/w185{{film.Poster}}"></div>
-                                <br>
-                                <div ng-model="rating" class="card-footer">Rating: {{film.Rating}}<br>
-                                </div>
-                            </div>
-                        </div>
-                    </div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,65 +1,64 @@
 @import 'https://fonts.googleapis.com/css?family=Source+Sans+Pro';
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700');
+@import url('https://fonts.googleapis.com/css?family=Fredericka+the+Great');
 $Source-Sans-Pro:'Source Sans Pro', sans-serif;
-
-
-$Baseline:14px;
+$Baseline:16px;
 $base-color:#017a68;
+.wrapper {
+  @include outer-container();
+}
 
-.wrapper{
-    @include outer-container();
-  }
-  body{
-    margin: 0;
-    padding: 0;
-    background-color:#f5eae8;
-    font-size:$Baseline;
-  }
-  
-  
-  h1{
-    font-size:3.998em;
-    font-family:$Source-Sans-Pro;
-    font-weight:900;
-  }
-  
-  .regular{
-    font-size:2.827em;
-    font-family:$Source-Sans-Pro;
-    font-weight:100;
-  }
-  h2{
-    font-size:2.827em;
-    font-family:$Source-Sans-Pro;
-    font-weight:900;
-  }
-  
-  
-  h3{
-      font-size:1.999em;
-      font-family:$Source-Sans-Pro;
-    font-weight:900;
-  }
-  
-  h4{
-      font-size:1.414em;
-      font-family:$Source-Sans-Pro;
-    font-weight:900;
-  }
-  
-  h5{
-      font-size:1em;
-      font-family:$Source-Sans-Pro;
-    font-weight:900;
-  }
-  
-  h6{
-      font-size:0.707em;
-      font-family:$Source-Sans-Pro;
-    font-weight:900;
-  }
-  
-p{
-    font-size:1.3em;
-    font-family:$Source-Sans-Pro;
-  }
-  
+body {
+  margin: 0;
+  padding: 0;
+  font-size: $Baseline;
+  background-color: #e8edf4;
+  font-family: $Source-Sans-Pro;
+}
+
+h1 {
+  font-size: 3.998em;
+  font-family: $Source-Sans-Pro;
+  font-weight: 900;
+}
+
+.regular {
+  font-size: 2.827em;
+  font-family: $Source-Sans-Pro;
+  font-weight: 100;
+}
+
+h2 {
+  font-size: 2.827em;
+  font-family: $Source-Sans-Pro;
+  font-weight: 900;
+}
+
+h3 {
+  font-size: 1.999em;
+  font-family: $Source-Sans-Pro;
+  font-weight: 900;
+}
+
+h4 {
+  font-size: 1.414em;
+  font-family: $Source-Sans-Pro;
+  font-weight: 900;
+}
+
+h5 {
+  font-size: 1em;
+  font-family: $Source-Sans-Pro;
+  font-weight: 900;
+}
+
+h6 {
+  font-size: 0.707em;
+  font-family: $Source-Sans-Pro;
+  font-weight: 900;
+}
+
+p {
+  font-size: 1.3em;
+  font-family: $Source-Sans-Pro;
+}
