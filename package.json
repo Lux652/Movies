@@ -20,7 +20,7 @@
     "gulp": "^3.9.1"
   },
   "devDependencies": {
-    "bourbon-neat": "^1.9.1",
+    "bourbon-neat": "^4.0.0",
     "gulp-plumber": "^1.2.1",
     "gulp-sass": "^4.0.2",
     "gulp-sourcemaps": "^2.6.5",
